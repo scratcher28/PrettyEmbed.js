@@ -18,6 +18,7 @@
 * 
 * 					showInfo: true,
 * 					showControls: true,
+*                                       fullscreen: true,
 * 					loop: false,
 *					closedCaptions: false,
 * 					colorScheme: 'dark',
@@ -262,7 +263,7 @@
 			if ( (obj.attr('data-pe-show-related') === 'false') || (options.showRelated === false) ) { playerOptions += '&rel=0'; } else { playerOptions += '&rel=1'; }
 
 			// Write the YouTube video iFrame into the element at the exact dimensions it is now
-			obj.html('<iframe width="' + wrapperWidth + '" height="' + wrapperHeight + '" style="border:none;" src="//www.youtube.com/embed/' + thisVideoID + '?autoplay=1' + playerOptions + '"></iframe>')
+			obj.html('<iframe width="' + wrapperWidth + '" height="' + wrapperHeight + '" ' + (options.fullscreen ? 'allowfullscreen' : '') + ' style="border:none;" src="//www.youtube.com/embed/' + thisVideoID + '?autoplay=1' + playerOptions + '"></iframe>')
 				// Remove the YouTube 'play' button using a CSS class
 				.addClass('play');
 
@@ -300,6 +301,7 @@
 			showControls: true,
 			loop: false,
 			closedCaptions: false,
+			fullscreen: true,
 
 			colorScheme: 'dark',
 			showRelated: false,
